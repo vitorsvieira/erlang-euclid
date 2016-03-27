@@ -1,1 +1,1 @@
-# scala-euclid
+# erlang-euclid
