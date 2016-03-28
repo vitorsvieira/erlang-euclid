@@ -6,7 +6,7 @@ Euclidian algorithms related to the domain of integers (Number Theory).
 
 ## Implementations
 
-Most of the following functions were implemented using bit operations.
+Most of the following functions were implemented using [bit operations](http://erlang.org/doc/reference_manual/expressions.html#id80601).
 
 ```erlang
 1>euclid:is_even(4).
@@ -17,7 +17,7 @@ true
 
 Floor and Ceiling
 
-Erlang doesn't provide a floor and ceiling funtions. The following implementations are possible by implementing the trunc function. [https://erlangcentral.org/wiki/index.php?title=Floating_Point_Rounding](https://erlangcentral.org/wiki/index.php?title=Floating_Point_Rounding)
+Erlang doesn't provide a floor and ceiling funtions. The following implementations are possible by implementing the `trunc` function. [https://erlangcentral.org/wiki/index.php?title=Floating_Point_Rounding](https://erlangcentral.org/wiki/index.php?title=Floating_Point_Rounding)
  
 ```erlang
 3>euclid:floor(4.4).
