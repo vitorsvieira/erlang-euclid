@@ -1,8 +1,7 @@
 # erlang-euclid
-<<<<<<< HEAD
 
 
-Euclidian algorithms represented as functions related to the domain of integers (Number Theory). 
+Euclidian algorithms related to the domain of integers (Number Theory). 
 
 
 ## Implementations
@@ -18,9 +17,7 @@ true
 
 Floor and Ceiling
 
-Erlang doesn't provide a floor and ceiling funtions. The following implementations are possible by implementing the trunc function. 
-
-[https://erlangcentral.org/wiki/index.php?title=Floating_Point_Rounding](https://erlangcentral.org/wiki/index.php?title=Floating_Point_Rounding)
+Erlang doesn't provide a floor and ceiling funtions. The following implementations are possible by implementing the trunc function. [https://erlangcentral.org/wiki/index.php?title=Floating_Point_Rounding](https://erlangcentral.org/wiki/index.php?title=Floating_Point_Rounding)
  
 ```erlang
 3>euclid:floor(4.4).
@@ -101,7 +98,7 @@ Least Common Multiple between two integers.
 ```
 
 
-#References:
+##References:
 
 [https://en.wikipedia.org/wiki/Euclid](https://en.wikipedia.org/wiki/Euclid)
 
@@ -110,7 +107,7 @@ Least Common Multiple between two integers.
 [https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm)
 
 
-#License
+##License
 
 The MIT License (MIT)
 
@@ -133,5 +130,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-=======
->>>>>>> origin/master

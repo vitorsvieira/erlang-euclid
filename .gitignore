@@ -8,7 +8,9 @@ ebin
 rel/example_project
 .concrete/DEV_MODE
 .rebar
-.settings
+.settings/
+.gitattributes
+.project
 
 # =========================
 # Operating System Files
