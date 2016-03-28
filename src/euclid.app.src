@@ -1,0 +1,12 @@
+{ application, euclid
+, [ {description, "Euclidian functions related to the Integer Number Theory."}
+  , {vsn, "0.1"}
+  , {registered, []}
+  , {applications, [ kernel, stdlib]}
+  , {env, []}  
+  
+  , {modules, []}
+  , {maintainers, ["Vitor Vieira"]}
+  , {licenses, ["MIT"]}
+  , {links, [{"GitHub", "https://github.com/notvitor/erlang-euclid"}]}
+ ]}.
