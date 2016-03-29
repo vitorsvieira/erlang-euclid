@@ -1,6 +1,6 @@
 language: erlang
-script: "make clean && rm -rf ./.git && make tests"
-notifications:
-  email: false
+branches:
+        only:
+                - master
 otp_release:
-  - 17.0
+  - 18.3

@@ -83,7 +83,13 @@ power_of_two(X) when X > 0 ->
 
 ceiling_to_power_of_two(X) ->	
 	to_power_of_two(X-1, 1).
-	
+
+%% Internal
+to_power_of_two(E, P) when P =< 32->        
+    to_power_of_two(E bor (E bsr P), P+P);
+to_power_of_two(E, P) when P > 32 ->
+    E + 1.
+
 
 %% Greatest Common Divisor
 
@@ -98,6 +104,14 @@ gcd(Nums) when is_list(Nums), length(Nums) == 0 ->
 gcd(Nums) when is_list(Nums) ->
 	G = abs(hd(Nums)),
 	gcd(tl(Nums), G, 0).
+
+
+%% Internal
+gcd(Nums, Gcd, _) when length(Nums) > 0, Gcd > 1 ->
+    G = gcd(Gcd, hd(Nums)),
+    gcd(tl(Nums), G, 0);
+gcd(Nums, Gcd, _) when length(Nums) == 0 ->
+    Gcd.
 	
 
 %% Least Common Multiple
@@ -107,31 +121,16 @@ lcm(X, Y) when X == 0; Y == 0 ->
 lcm(X, Y) ->
 	abs((X div gcd(X, Y))*Y).
 
-        
+
 lcm(Nums) when is_list(Nums), size(Nums) == 0 ->
 	1;
 lcm(Nums) when is_list(Nums) ->
 	L = abs(hd(Nums)),
 	lcm(tl(Nums), L, 0).
 
-
-%% Internal functions
-
-to_power_of_two(E, P) when P =< 32->        
-    to_power_of_two(E bor (E bsr P), P+P);
-to_power_of_two(E, P) when P > 32 ->
-    E + 1.
-
-
+%% Internal
 lcm(Nums, Lcm, _) when length(Nums) > 0 ->
     L = lcm(Lcm, hd(Nums)),
     lcm(tl(Nums), L, 0);
 lcm(Nums, Lcm, _) when length(Nums) == 0 ->
     Lcm.
-
-
-gcd(Nums, Gcd, _) when length(Nums) > 0, Gcd > 1 ->
-    G = gcd(Gcd, hd(Nums)),
-    gcd(tl(Nums), G, 0);
-gcd(Nums, Gcd, _) when length(Nums) == 0 ->
-    Gcd.
