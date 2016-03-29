@@ -1,6 +1,7 @@
 language: erlang
-branches:
-        only:
-                - master
+notifications:
+  email: false 
 otp_release:
-  - 18.3
+  - 18.2.1
+  - 17.5
+script: "./rebar3 eunit"
