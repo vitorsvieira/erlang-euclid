@@ -1,11 +1,16 @@
 %% @author Vitor Vieira
 
 -module(euclid).
+
+%% API exports
 -export([is_even/1, is_odd/1, floor/1, ceiling/1, is_power_of_two/1]).
 -export([is_perfect_square/1, modulus/2, remainder/2, power_of_two/1]).
 -export([ceiling_to_power_of_two/1, gcd/1, gcd/2, lcm/1, lcm/2]).
 
 
+%%====================================================================
+%% API functions
+%%====================================================================
 is_even(X) when is_number(X) ->	
 	(X band 2#1) == 2#0.
 
@@ -84,12 +89,6 @@ power_of_two(X) when X > 0 ->
 ceiling_to_power_of_two(X) ->	
 	to_power_of_two(X-1, 1).
 
-%% Internal
-to_power_of_two(E, P) when P =< 32->        
-    to_power_of_two(E bor (E bsr P), P+P);
-to_power_of_two(E, P) when P > 32 ->
-    E + 1.
-
 
 %% Greatest Common Divisor
 
@@ -106,14 +105,6 @@ gcd(Nums) when is_list(Nums) ->
 	gcd(tl(Nums), G, 0).
 
 
-%% Internal
-gcd(Nums, Gcd, _) when length(Nums) > 0, Gcd > 1 ->
-    G = gcd(Gcd, hd(Nums)),
-    gcd(tl(Nums), G, 0);
-gcd(Nums, Gcd, _) when length(Nums) == 0 ->
-    Gcd.
-	
-
 %% Least Common Multiple
 
 lcm(X, Y) when X == 0; Y == 0 ->
@@ -128,9 +119,26 @@ lcm(Nums) when is_list(Nums) ->
 	L = abs(hd(Nums)),
 	lcm(tl(Nums), L, 0).
 
-%% Internal
+
+%%====================================================================
+%% Internal functions
+%%====================================================================
+
+gcd(Nums, Gcd, _) when length(Nums) > 0, Gcd > 1 ->
+    G = gcd(Gcd, hd(Nums)),
+    gcd(tl(Nums), G, 0);
+gcd(Nums, Gcd, _) when length(Nums) == 0 ->
+    Gcd.
+
+
 lcm(Nums, Lcm, _) when length(Nums) > 0 ->
     L = lcm(Lcm, hd(Nums)),
     lcm(tl(Nums), L, 0);
 lcm(Nums, Lcm, _) when length(Nums) == 0 ->
     Lcm.
+
+
+to_power_of_two(E, P) when P =< 32->        
+    to_power_of_two(E bor (E bsr P), P+P);
+to_power_of_two(E, P) when P > 32 ->
+    E + 1.
